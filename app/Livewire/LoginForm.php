@@ -21,6 +21,9 @@ class LoginForm extends Component
         $this->validate();
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            if(Auth::user()->role === 'admin') {
+                return redirect()->intended('/admin/dashboard');
+            }
             return redirect()->intended('/dashboard');
         }
 
