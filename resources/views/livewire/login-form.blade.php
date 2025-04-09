@@ -12,6 +12,9 @@
                             <span class="label-text">Email</span>
                         </label>
                         <input type="email" placeholder="Email" class="input input-bordered" wire:model="email" required />
+                        @error('email')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-control">
                         <label class="label">

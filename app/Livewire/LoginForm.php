@@ -22,9 +22,9 @@ class LoginForm extends Component
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             if(Auth::user()->role === 'admin') {
-                return redirect()->intended('/admin/dashboard');
+                return redirect('/admin');
             }
-            return redirect()->intended('/dashboard');
+            return redirect('/dashboard');
         }
 
         $this->addError('email', 'These credentials do not match our records.');
